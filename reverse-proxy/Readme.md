@@ -16,5 +16,9 @@ caddy
 
 ```
 source env1
+
+go build bechurch.go
+./bechurch
+
 go run bechurch.go
 ```
