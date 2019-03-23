@@ -1,4 +1,8 @@
-export PORT=1330
-export A_CONDITION_URL="http://localhost:1331"
-export B_CONDITION_URL="http://localhost:1332"
-export DEFAULT_CONDITION_URL="http://localhost:1333"
+export PORT=3000
+export A_CONDITION_URL="http://localhost:3010"
+export B_CONDITION_URL="http://localhost:3011"
+export DEFAULT_CONDITION_URL="http://localhost:3012"
+
+alias g10="curl --request GET --url http://localhost:3010/ --header 'content-type: application/json'  --data '{"proxy_condition": "a"}'"
+alias g11="curl --request GET --url http://localhost:3011/ --header 'content-type: application/json'  --data '{"proxy_condition": "b"}'"
+alias g12="curl --request GET --url http://localhost:3012/ --header 'content-type: application/json'  --data '{"proxy_condition": "a"}'"

@@ -1,0 +1,9 @@
+localhost:3011
+
+push
+browse
+websocket /echo cat
+ext    .html
+log    /tmp18/log/access11.log
+proxy  /api 127.0.0.1:7005
+header /api Access-Control-Allow-Origin *
