@@ -20,7 +20,7 @@ func main() {
 	defer f.Close()
 
 	n3, err := f.WriteString(result)
-	fmt.Printf("wrote %d bytes\n", n3)
+	fmt.Printf("wrote %d bytes to /Users/ma/.influxenv\n", n3)
 	f.Sync()
 }
 
