@@ -27,6 +27,8 @@ func main() {
 		}
 
 		fmt.Println(record)
+		fmt.Printf("%T\n", record)
+		fmt.Println(record[0])
 	}
 }
 
