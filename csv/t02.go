@@ -10,8 +10,13 @@ import (
 )
 
 func main() {
+	myfilename := "t02.csv"
+	processCsv(myfilename)
+}
 
-	dat, err := ioutil.ReadFile("t02.csv")
+func processCsv(filename string) {
+
+	dat, err := ioutil.ReadFile(filename)
 	check(err)
 	token := string(dat)
 
