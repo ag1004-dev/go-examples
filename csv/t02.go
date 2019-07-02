@@ -42,6 +42,7 @@ func processRecord(record []string) {
 	if strings.Contains(record[4], "close") == false {
 		output[1] = record[4]
 	}
+	// do not write out to the file the first line of the csv file
 	if strings.Contains(record[0], "datetime") == false {
 		fmt.Println(output[1], output[0])
 	}
