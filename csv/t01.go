@@ -4,17 +4,18 @@ import (
 	"encoding/csv"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"strings"
 )
 
 func main() {
-	in := `first_name,last_name,username
-"Rob","Pike",rob
-Ken,Thompson,ken
-"Robert","Griesemer","gri"
-`
-	r := csv.NewReader(strings.NewReader(in))
+
+	dat, err := ioutil.ReadFile("t01.csv")
+	check(err)
+	token := string(dat)
+
+	r := csv.NewReader(strings.NewReader(token))
 
 	for {
 		record, err := r.Read()
@@ -26,5 +27,11 @@ Ken,Thompson,ken
 		}
 
 		fmt.Println(record)
+	}
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
 	}
 }
