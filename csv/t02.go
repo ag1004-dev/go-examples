@@ -6,12 +6,23 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
 	myfilename := "t02.csv"
 	processCsv(myfilename)
+}
+
+func getUnixTime(mytime string) string {
+	const shortForm = "2006-01-02"
+	t, _ := time.Parse(shortForm, mytime)
+	//fmt.Println(t)
+	//fmt.Println(t.Unix())
+	data := strconv.FormatInt(t.Unix(), 10)
+	return data
 }
 
 func getDate(date string) string {
@@ -26,7 +37,8 @@ func processRecord(record []string) {
 	//fmt.Println(record[0])
 	mydate := record[0]
 	if strings.Contains(mydate, "datetime") == false {
-		output[0] = getDate(mydate)
+		datestr := getDate(mydate)
+		output[0] = getUnixTime(datestr)
 		fmt.Println(output[0])
 	}
 }
