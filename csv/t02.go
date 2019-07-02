@@ -15,8 +15,8 @@ func main() {
 }
 
 func processRecord(record []string) {
-	fmt.Println(record)
-	fmt.Printf("%T\n", record)
+	//fmt.Println(record)
+	//fmt.Printf("%T\n", record)
 	fmt.Println(record[0])
 }
 
