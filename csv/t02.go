@@ -30,7 +30,7 @@ func getDate(date string) string {
 	return values[0]
 }
 
-func processRecord(record []string) {
+func processRecord(symbol string, record []string) {
 	var output [3]string
 	//fmt.Println(record)
 	//fmt.Printf("%T\n", record)
@@ -40,11 +40,11 @@ func processRecord(record []string) {
 		output[0] = getUnixTime(datestr)
 	}
 	if strings.Contains(record[4], "close") == false {
-		output[1] = record[4]
+		output[1] = "close=" + record[4]
 	}
 	// do not write out to the file the first line of the csv file
 	if strings.Contains(record[0], "datetime") == false {
-		fmt.Println(output[1], output[0])
+		fmt.Println(symbol, output[1], output[0])
 	}
 }
 
@@ -65,7 +65,9 @@ func processCsv(filename string) {
 			log.Fatal(err)
 		}
 
-		processRecord(record)
+		symbol := strings.Split(filename, ".")
+
+		processRecord(symbol[0], record)
 	}
 }
 
