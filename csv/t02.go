@@ -14,6 +14,12 @@ func main() {
 	processCsv(myfilename)
 }
 
+func processRecord(record []string) {
+	fmt.Println(record)
+	fmt.Printf("%T\n", record)
+	fmt.Println(record[0])
+}
+
 func processCsv(filename string) {
 
 	dat, err := ioutil.ReadFile(filename)
@@ -31,9 +37,7 @@ func processCsv(filename string) {
 			log.Fatal(err)
 		}
 
-		fmt.Println(record)
-		fmt.Printf("%T\n", record)
-		fmt.Println(record[0])
+		processRecord(record)
 	}
 }
 
