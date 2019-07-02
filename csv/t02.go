@@ -14,10 +14,21 @@ func main() {
 	processCsv(myfilename)
 }
 
+func getDate(date string) {
+	values := strings.Split(date, " ")
+	fmt.Println(values[0])
+}
+
 func processRecord(record []string) {
 	//fmt.Println(record)
 	//fmt.Printf("%T\n", record)
-	fmt.Println(record[0])
+	//fmt.Println(record[0])
+	mydate := record[0]
+	if strings.Contains(mydate, "datetime") == true {
+		fmt.Println("ok")
+	} else {
+		getDate(mydate)
+	}
 }
 
 func processCsv(filename string) {
