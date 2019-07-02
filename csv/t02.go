@@ -35,11 +35,15 @@ func processRecord(record []string) {
 	//fmt.Println(record)
 	//fmt.Printf("%T\n", record)
 	//fmt.Println(record[0])
-	mydate := record[0]
-	if strings.Contains(mydate, "datetime") == false {
-		datestr := getDate(mydate)
+	if strings.Contains(record[0], "datetime") == false {
+		datestr := getDate(record[0])
 		output[0] = getUnixTime(datestr)
-		fmt.Println(output[0])
+	}
+	if strings.Contains(record[4], "close") == false {
+		output[1] = record[4]
+	}
+	if strings.Contains(record[0], "datetime") == false {
+		fmt.Println(output[1], output[0])
 	}
 }
 
